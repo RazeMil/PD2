@@ -46,5 +46,14 @@ public class MainActivity extends AppCompatActivity {
 
 //set the spinners adapter to the previously created one.     dropdown.setAdapter(adapter);
 });
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    tvEnd.setText("");
+                    etNo.setText("");
+                    etTotal.setText("");
+            }
+        });
     }
 }
