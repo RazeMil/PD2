@@ -1,5 +1,8 @@
 package sg.edu.rp.c346.letspaydabillz;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,12 +12,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 public class MainActivity extends AppCompatActivity {
     EditText etNo;
     EditText etTotal;
     Button btnCal;
     Button btnReset;
-    Spinner spnTab;
     TextView tvEnd;
 
     @Override
@@ -26,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         etTotal = findViewById(R.id.etCost);
         btnCal = findViewById(R.id.btnCal);
         btnReset = findViewById(R.id.btnReset);
-        spnTab = findViewById(R.id.spinnerTab);
         tvEnd = findViewById(R.id.tvResult);
 
      //   String[] items = new String[]{"Cost Splitter", "Who Pay the Bill", "Group"};
@@ -37,7 +41,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
               float a=Float.parseFloat(etNo.getText().toString());
               float b=Float.parseFloat(etTotal.getText().toString());
-                tvEnd.setText("Each Person pays : "+(b/a));
+                float f = (b/a);
+                DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                float twoDigitsF = Float.valueOf(decimalFormat.format(f));
+                tvEnd.setText("Each Person pays : "+(twoDigitsF));
             }
 
 
