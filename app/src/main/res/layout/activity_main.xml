@@ -58,7 +58,7 @@
         android:layout_weight="1"
         android:ems="10"
         android:gravity="center"
-        android:hint="Input Total Cost in Decimal"
+        android:hint="Input Total Price"
         android:inputType="numberDecimal" />
 
     <Button
